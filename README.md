@@ -19,6 +19,7 @@ Sprint5/
 ├── helpers/            # Вспомогательные функции
 ├── tests/              # Тестовые сценарии
 ├── conftest.py         # Фикстуры pytest
+├── urls.py             # URL's для тестов
 └── requirements.txt    # Зависимости
 ```
 

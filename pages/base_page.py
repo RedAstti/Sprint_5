@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class BasePage:
     """Базовый класс для всех страниц"""
-    
+
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(driver, 10)
@@ -50,3 +50,15 @@ class BasePage:
     def get_current_url(self):
         """Получить текущий URL"""
         return self.driver.current_url
+    
+    def wait_for_url_contains(self, url_part):
+        """Ждать, пока URL будет содержать указанную часть"""
+        self.wait.until(EC.url_contains(url_part))
+    
+    def wait_for_element_visibility(self, locator):
+        """Ждать, пока элемент станет видимым"""
+        self.wait.until(EC.visibility_of_element_located(locator))
+    
+    def wait_for_element_invisibility(self, locator):
+        """Ждать, пока элемент исчезнет"""
+        self.wait.until(EC.invisibility_of_element_located(locator))
